@@ -1,2 +1,3 @@
 rootProject.name = "ijkdemo"
 include ':app'
+include ':ijkplayer'
