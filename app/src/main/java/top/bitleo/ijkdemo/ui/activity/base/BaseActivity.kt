@@ -8,16 +8,16 @@ import android.os.Handler
 import androidx.annotation.NonNull
 import androidx.appcompat.app.AppCompatActivity
 import butterknife.ButterKnife
+import es.dmoral.toasty.Toasty
 import top.bitleo.ijkdemo.inject.component.AppComponent
 import top.bitleo.ijkdemo.mvp.contract.base.IBaseContract
 import top.bitleo.ijkdemo.ClientApplication
+import top.bitleo.ijkdemo.ui.activity.LoginActivity
+import top.bitleo.ijkdemo.ui.activity.SplashActivity
 import javax.inject.Inject
 //import es.dmoral.toasty.Toasty
 
-/**
- * Created by shadow
- * Time: 2019/4/30
- */
+
 abstract class BaseActivity<P : IBaseContract.Presenter<*>>(): AppCompatActivity() ,IBaseContract.View{
 
     @JvmField @Inject
@@ -28,24 +28,18 @@ abstract class BaseActivity<P : IBaseContract.Presenter<*>>(): AppCompatActivity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        if ((AppData.INSTANCE.authUser == null || AppData.INSTANCE.loggedUser == null)
-//            && this.javaClass != SplashActivity::class.java
-//            && this.javaClass != LoginActivity::class.java
-//            && this.javaClass != VPNMainActivity::class.java
-//
-//        ) {
-//            finishAffinity()
-//            startActivity(Intent(this, SplashActivity::class.java))
-//            return
-//        }
-//
-//        setupActivityComponent(getAppComponent())
-//        DataAutoAccess.getData(this, savedInstanceState)
-//        mPresenter?.onRestoreInstanceState(savedInstanceState ?: intent.extras)
-//
-//        if (savedInstanceState != null && AppData.INSTANCE.authUser== null) {
-//            DataAutoAccess.getData(AppData.INSTANCE, savedInstanceState)
-//        }
+        if ( this.javaClass != SplashActivity::class.java
+            && this.javaClass != LoginActivity::class.java
+        ) {
+            finishAffinity()
+            startActivity(Intent(this, SplashActivity::class.java))
+            return
+        }
+
+        setupActivityComponent(getAppComponent())
+
+        mPresenter?.onRestoreInstanceState(savedInstanceState ?: intent.extras)
+
         settingContentView();
         ButterKnife.bind(this)
         initActivity();
@@ -86,11 +80,11 @@ abstract class BaseActivity<P : IBaseContract.Presenter<*>>(): AppCompatActivity
     }
 
     override fun showErrorToast(message: String) {
-        //Toasty.error(getActivity(), message).show()
+        Toasty.error(getActivity(), message).show()
     }
 
     override fun showInfoToast(message: String) {
-        //Toasty.info(getActivity(), message).show()
+        Toasty.info(getActivity(), message).show()
     }
 
 //    override fun showLoginPage(){

@@ -9,7 +9,7 @@ import top.bitleo.ijkdemo.ui.activity.*
 @ActivityScope
 @Component(modules = [ActivityModule::class], dependencies = [AppComponent::class])
 interface ActivityComponent {
-
-
-
+    fun inject(activity: LoginActivity)
+    fun inject(activity: SplashActivity)
+    fun inject(activity: MainActivity)
 }

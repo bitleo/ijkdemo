@@ -18,6 +18,7 @@ import javax.inject.Inject
 
 import butterknife.ButterKnife
 import butterknife.Unbinder
+import es.dmoral.toasty.Toasty
 import top.bitleo.ijkdemo.ClientApplication
 import top.bitleo.ijkdemo.R
 import top.bitleo.ijkdemo.inject.component.AppComponent
@@ -163,11 +164,11 @@ abstract class BaseFragment<P : IBaseContract.Presenter<*>> : androidx.fragment.
     }
 
     override  fun showErrorToast(message :String) {
-        //activity?.let { Toasty.error(it, message).show() };
+        activity?.let { Toasty.error(it, message).show() };
     }
 
     override fun showInfoToast(message: String) {
-      //  activity?.let { Toasty.info(it, message).show() };
+        activity?.let { Toasty.info(it, message).show() };
     }
 
 
