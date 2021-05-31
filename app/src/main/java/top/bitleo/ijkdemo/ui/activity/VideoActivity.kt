@@ -1,4 +1,4 @@
-package top.bitleo.ijkdemo
+package top.bitleo.ijkdemo.ui.activity
 
 import android.os.Bundle
 import android.view.View
@@ -6,7 +6,7 @@ import android.widget.MediaController
 import androidx.appcompat.app.AppCompatActivity
 import butterknife.BindView
 import butterknife.ButterKnife
-import top.bitleo.ijkdemo.widget.media.AndroidMediaController
+import top.bitleo.ijkdemo.R
 import top.bitleo.ijkdemo.widget.media.IMediaController
 import top.bitleo.ijkdemo.widget.media.IjkVideoView
 

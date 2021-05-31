@@ -1,4 +1,4 @@
-package top.bitleo.ijkdemo
+package top.bitleo.ijkdemo.ui.activity
 
 import android.app.ProgressDialog
 import android.content.Intent
@@ -14,6 +14,7 @@ import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import retrofit2.Response
+import top.bitleo.ijkdemo.R
 import top.bitleo.ijkdemo.http.AppRetrofitCreator
 import top.bitleo.ijkdemo.http.core.HttpObserver
 import top.bitleo.ijkdemo.http.core.HttpResponse
